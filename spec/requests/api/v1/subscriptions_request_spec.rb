@@ -42,5 +42,23 @@ RSpec.describe 'subscription requests' do
       expect(response).to_not be_successful
       expect(response.status).to eq(404)
     end
+
+    it "returns 404 when tea does not exist /post" do
+      customer = Customer.create(first_name: "Brian", last_name: "Person", address: "123 rd", email: "b@peterson.com" )
+      tea1 = Tea.create(title: "Wades Tea ", description: " sweet tea", temp: 45, brew_time: "1 minute")
+
+      post '/api/v1/subscriptions', params: { title: 'Testtest', price: 3.00, status: "active", frequency: 'weekly', customer_id: customer.id }
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+    end
+
+    it "returns 404 when customer does not exist /post" do
+      customer = Customer.create(first_name: "Brian", last_name: "Person", address: "123 rd", email: "b@peterson.com" )
+      tea1 = Tea.create(title: "Wades Tea ", description: " sweet tea", temp: 45, brew_time: "1 minute")
+
+      post '/api/v1/subscriptions', params: { title: 'Testtest', price: 3.00, status: "active", frequency: 'weekly', tea_id: tea1.id }
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+    end
   end
 end
