@@ -8,7 +8,7 @@ RSpec.describe 'customer requests' do
 
     sub1 = Subscription.create(title: " First sub ", price: 4.50, status: "active", frequency: " monthly", customer_id: customer.id, tea_id: tea1.id)
     sub2 = Subscription.create(title: " second sub ", price: 10.00, status: "deactivated", frequency: " weekly", customer_id: customer.id, tea_id: tea2.id)
-    get '/api/v1/customer/:id', params: { customer_id: customer.id }
+    get "/api/v1/customer", params: { id: customer.id }
     subscription = JSON.parse(response.body, symbolize_names: true)
     expect(response).to be_successful
     expect(response.status).to eq(200)
