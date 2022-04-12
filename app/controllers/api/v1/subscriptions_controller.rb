@@ -9,10 +9,15 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
 
   def update
-    subscription = Subscription.find(params[:id])
-    subscription.update(subscription_params)
-    render json: SubscriptionsSerializer.new(subscription), status: 200
+    subscription = Subscription.find_by(id: params[:id])
+    if subscription == nil
+        render json: {error: "Bad Request"}, status: 404
+    else
+      subscription.update(subscription_params)
+      render json: SubscriptionsSerializer.new(subscription), status: 200
+    end
   end
+
 
   private
 
