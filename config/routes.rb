@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :subscriptions, only: [:create, :update]
-      # patch '/subscriptions/:id', to: 'subscriptions#update'
       get '/customer', to: 'customer#show'
+      get '/customers', to: 'customer#index'
     end
   end
 end
