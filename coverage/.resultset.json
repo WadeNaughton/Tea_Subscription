@@ -17,6 +17,29 @@
           2,
           2,
           null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -324,7 +347,7 @@
           1,
           null,
           1,
-          1,
+          4,
           null,
           null,
           null
@@ -415,6 +438,21 @@
           1,
           1,
           1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
           null,
           1,
           1,
@@ -423,6 +461,11 @@
           1,
           1,
           1,
+          1,
+          1,
+          1,
+          1,
+          null,
           null,
           null
         ]
@@ -501,8 +544,8 @@
           null,
           null,
           1,
-          0,
-          0,
+          1,
+          1,
           null,
           null,
           null,
@@ -527,6 +570,14 @@
           1,
           1,
           null,
+          null
+        ]
+      },
+      "/Users/wadenaughton/turing/4module/projects/tea_subscription/app/serializers/customer_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -567,6 +618,6 @@
         ]
       }
     },
-    "timestamp": 1649792993
+    "timestamp": 1649794363
   }
 }
