@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       resources :subscriptions, only: [:create, :update]
       get '/customer', to: 'customer#show'
       get '/customers', to: 'customer#index'
+      post '/customer', to: 'customer#create'
+      post '/tea', to: 'tea#create'
     end
   end
 end
