@@ -11,7 +11,7 @@ RSpec.describe 'customer requests' do
     sub2 = Subscription.create(title: " second sub ", price: 10.00, status: "deactivated", frequency: " weekly", customer_id: customer.id, tea_id: tea2.id)
     sub3 = Subscription.create(title: " second sub ", price: 10.00, status: "deactivated", frequency: " weekly", customer_id: customer2.id, tea_id: tea2.id)
 
-    get "/api/v1/customer", params: { id: customer.id }
+    get "/api/v1/customer/#{customer.id}/subscriptions"
     subscription = JSON.parse(response.body, symbolize_names: true)
     expect(response).to be_successful
     expect(response.status).to eq(200)
