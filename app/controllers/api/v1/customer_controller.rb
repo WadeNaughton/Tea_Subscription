@@ -13,15 +13,10 @@ class Api::V1::CustomerController < ApplicationController
     render json: SubscriptionsSerializer.new(subscription), status: 200
   end
 
-  # def create
-  #   customer = Customer.create(customer_params)
-  #   render json: CustomerSerializer.new(customer), status: 201
-  # end
-
   def create
     new_customer = Customer.find_by(email: params[:email])
     if new_customer.present?
-      render json: {error: "User already exists"}, status: 404
+      render json: {error: "Customer already exists"}, status: 404
     else
       customer = Customer.create(customer_params)
       render json: CustomerSerializer.new(customer), status: 201

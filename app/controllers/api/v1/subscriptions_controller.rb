@@ -1,5 +1,10 @@
 class Api::V1::SubscriptionsController < ApplicationController
 
+  def index
+    subscriptions = Subscription.all
+    subscription = subscriptions.uniq_subs
+    render json: UniqueSubscriptionsSerializer.new(subscription), status: 200
+  end
 
   def create
     customer = Customer.find_by(id: params[:customer_id])
@@ -17,7 +22,7 @@ class Api::V1::SubscriptionsController < ApplicationController
     if subscription == nil
         render json: {error: "Bad Request"}, status: 404
     else
-      subscription.update(subscription_params)
+      subscription.update(status: params[:status])
       render json: SubscriptionsSerializer.new(subscription), status: 200
     end
   end

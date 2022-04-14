@@ -8,4 +8,8 @@ class Subscription < ApplicationRecord
   validates_presence_of :frequency
   validates_presence_of :customer_id
   validates_presence_of :tea_id
+
+  def self.uniq_subs
+    Subscription.select("DISTINCT ON(subscriptions.title) subscriptions.*")
+  end
 end
