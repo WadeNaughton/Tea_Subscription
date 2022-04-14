@@ -34,4 +34,19 @@ RSpec.describe 'customer requests' do
     expect(customers[:data].length).to eq(5)
 
   end
+
+  it "can create a customer" do
+    post "/api/v1/customer", params: { first_name: 'New', last_name: 'guy', email: "new@guy.com", address: "1234 ave" }
+    customer = JSON.parse(response.body, symbolize_names: true)
+    expect(response).to be_successful
+    expect(response.status).to eq(201)
+    expect(customer).to be_a Hash
+  end
+
+  it "returns 404 when customer email already exists" do
+    customer1 = Customer.create(first_name: "Brian", last_name: "Person", address: "123 rd", email: "b@peterson.com" )
+    post "/api/v1/customer", params: { first_name: 'New', last_name: 'guy', email: "b@peterson.com", address: "1234 ave" }
+    expect(response).to_not be_successful
+    expect(response.status).to eq(404)
+  end
 end
