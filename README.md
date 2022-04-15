@@ -1,4 +1,9 @@
 # README
+![Screen Shot 2022-04-15 at 9 34 16 AM](https://user-images.githubusercontent.com/90228086/163577059-683fa789-4129-4b8f-abc9-5143eb30b013.png)
+
+# Background
+
+Tea Subscription is a backend rails application that provides API endpoints to a figurative frontend team. The frontend team would be able to use the endpoints in this project to create a tea, create a customer, create a subscription, edit a subscription, return all of a customers subscriptions, return all unique subscriptions, and return all users.
 
 # Gems
 - capybara
@@ -7,6 +12,7 @@
 - shoulda-matchers
 - launchy
 - jsonapi-serializer
+- pry
 
 # Setup
 
