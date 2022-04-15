@@ -9,7 +9,8 @@ class Api::V1::CustomerController < ApplicationController
 
   def show
     customer = Customer.find(params[:id])
-    subscription = customer.subs
+  
+    subscription = customer.subscriptions
     render json: SubscriptionsSerializer.new(subscription), status: 200
   end
 

@@ -8,8 +8,4 @@ class Customer < ApplicationRecord
   has_many :subscriptions
   has_many :teas, through: :subscriptions
 
-  def subs
-    self.subscriptions
-  end
-
 end
